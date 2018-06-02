@@ -4,8 +4,6 @@ MAINTAINER Mikael Andersson <mail.micke@gmail.com>
 
 ENV SDKMAN_DIR /usr/local/sdkman
 
-SHELL /bin/bash
-
 RUN set -x \
     && apt-get update \
     && apt-get install -y unzip zip --no-install-recommends
