@@ -1,6 +1,6 @@
 FROM java:7
 
-MAINTAINER Mikael Andersson <mail.micke@gmail.com>
+MAINTAINER Mikael Andersson
 
 ENV SDKMAN_DIR /usr/local/sdkman
 
@@ -8,8 +8,8 @@ RUN set -x \
     && apt-get update \
     && apt-get install -y unzip zip python-pip --no-install-recommends 
 
-RUN	pip install --upgrade pip 
-RUN pip install awscli
+RUN	pip install --upgrade pip \ 
+	&& pip install awscli
 
 
 RUN curl -s get.sdkman.io | bash
