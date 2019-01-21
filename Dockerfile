@@ -22,3 +22,14 @@ RUN set -x \
 #WORKDIR $SDKMAN_DIR
 
 RUN /bin/bash -c "source \"${SDKMAN_DIR}/bin/sdkman-init.sh\" && sdk install grails 2.2.4"
+
+ADD https://s3-eu-west-1.amazonaws.com/docker-dep-seed/plugins.tar.gz /usr/local/sdkman/candidates/grails/2.2.4/plugins
+
+RUN curl -SL https://s3-eu-west-1.amazonaws.com/docker-dep-seed/plugins.tar.gz \
+    | tar -xvzC /usr/local/sdkman/candidates/grails/2.2.4
+
+RUN mkdir -p /root/.grails/ivy-cache
+
+RUN curl -SL https://s3-eu-west-1.amazonaws.com/docker-dep-seed/ivy-cache.tar.gz \
+    | tar -xvzC /root/.grails
+
